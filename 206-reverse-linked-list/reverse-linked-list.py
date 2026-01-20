@@ -15,5 +15,4 @@ class Solution:
          return prev
 
 # **iterative solution**
-# store the next of the current in "nxt" variable so that it's location does not get lost when we point the current's next to the previous to make it a tail because prev is actually Null 
-# previous is our head because at the last step curr becomes Null, while, in the beginning prev is set to Null 
+# key "nxt" variable
