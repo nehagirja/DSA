@@ -10,7 +10,7 @@ class MyLinkedList:
         self.tail.prev = self.head
 
     def get(self, index: int) -> int:
-        cur = self.head.next
+        cur = self.head.next #initialising the actual head instead of self.head (dummy)
         while cur and index > 0:
             cur = cur.next
             index -= 1
@@ -34,26 +34,26 @@ class MyLinkedList:
         newTail.prev = tail 
 
     def addAtIndex(self, index: int, val: int) -> None:
-        curr = self.head.next 
-        while curr and index > 0:
-            curr = curr.next 
+        cur = self.head.next 
+        while cur and index > 0:
+            cur = cur.next 
             index -= 1
 
-        if index == 0 and curr:
-            node, left = ListNode(val), curr.prev 
+        if cur and index == 0:
+            node, left = ListNode(val), cur.prev 
             left.next = node
             node.prev = left
-            node.next = curr
-            curr.prev = node 
+            node.next = cur
+            cur.prev = node 
 
     def deleteAtIndex(self, index: int) -> None:
-        curr = self.head.next 
-        while curr and index > 0:
-            curr = curr.next 
+        cur = self.head.next 
+        while cur and index > 0:
+            cur = cur.next 
             index -= 1
 
-        if index == 0 and curr and curr != self.tail:
-           prv, nxt = curr.prev, curr.next 
+        if cur and index == 0 and cur != self.tail:
+           prv, nxt = cur.prev, cur.next 
            prv.next = nxt 
            nxt.prev = prv 
 
