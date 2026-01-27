@@ -9,9 +9,10 @@ class BrowserHistory:
         if len(self.history) < self.i + 2:
             self.history.append(url)
         else: 
-            self.history[self.i+1] = url #replace the old url by new url
+            self.history[self.i + 1] = url #replace the old url by new url
+       
         self.i += 1
-        self.length = self.i + 1 
+        self.length = self.i + 1 # we do this so that we can remove all the urls after the ith position
 
     def back(self, steps: int) -> str:
         self.i = max(self.i - steps, 0)
