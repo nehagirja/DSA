@@ -19,3 +19,6 @@ class Solution:
         dfs(root)
 
         return res[k-1]
+
+        #Time complexity :  O(n).
+        #Space complexity :  O(n).
