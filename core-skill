@@ -1,0 +1,52 @@
+//Design Heap
+
+class MinHeap:
+    def __init__(self):
+        self.heap = [0] #initialize with a dummy value 
+
+    def push(self, val: int) -> None:
+        self.heap.append(val)
+        self._percolate_up(len(self.heap)-1) #helper
+
+    def pop(self) -> int:
+        if len(self.heap) <= 1:
+            return -1
+        if len(self.heap) == 2:
+            return self.heap.pop()
+
+        root = self.heap[1]
+        self.heap[1] = self.heap.pop()
+        self._percolate_down(1) #helper
+        return root
+
+    def top(self) -> int:
+        if len(self.heap) > 1:
+            return self.heap[1]
+        else:
+            return -1 
+
+    def heapify(self, nums: List[int]) -> None:
+        self.heap = [0] + nums
+        for i in reversed(range(1, len(self.heap) // 2 + 1)):
+            self._percolate_down(i)
+        # time complexity is O(n)
+
+    def _percolate_up(self, index):
+        parent = index // 2 
+        while index > 1 and self.heap[index] < self.heap[parent]:
+            self.heap[index], self.heap[parent] = self.heap[parent], self.heap[index]
+            index = parent
+            parent = index // 2 
+
+    def _percolate_down(self, index):
+        i = index
+        while 2 * i < len(self.heap):
+            target = 2 * i
+            if 2 * i + 1 < len(self.heap) and self.heap[2 * i + 1] < self.heap[2 * i]:
+                target = 2 * i + 1
+            
+            if self.heap[i] > self.heap[target]:
+                self.heap[i], self.heap[target] = self.heap[target], self.heap[i]
+                i = target
+            else:
+                break
