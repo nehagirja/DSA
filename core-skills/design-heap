@@ -30,11 +30,10 @@ class MinHeap:
         # time complexity is O(n)
 
     def _percolate_up(self, index):
-        parent = index // 2 
-        while index > 1 and self.heap[index] < self.heap[parent]:
+         while index > 1 and self.heap[index] < self.heap[index // 2]:
+            parent = index // 2
             self.heap[index], self.heap[parent] = self.heap[parent], self.heap[index]
             index = parent
-            parent = index // 2 
 
     def _percolate_down(self, index):
         i = index
