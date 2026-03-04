@@ -14,3 +14,5 @@ class Solution:
             k -= 1
         
         return res
+
+# Time complexity is O(n) for for loop and O(log n ) for heappop for K elements hence K log n 
