@@ -18,7 +18,7 @@ class Solution:
         max_area = 0
         for r in range(ROWS):
             for c in range(COLS):
-                if grid[r][c] == 1 and (r, c) not in visit:
+                if grid[r][c] == 1:
                     max_area = max(max_area, dfs(r, c))
 
         return max_area
