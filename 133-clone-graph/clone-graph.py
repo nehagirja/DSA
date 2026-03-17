@@ -23,6 +23,8 @@ class Solution:
         return dfs(node) if node else None
     
 
-#The values to be pushed are not just values, they are whole Nodes. That is why they need to be created first and then pushed. 
+#The values to be pushed are not just values, they are whole Nodes. That is why they need to be created first and then pushed.
+
+# TC : O ( V + E )
 
 #FIRST WE CREATE THE NODES, THEN WE BACKTRACK.
