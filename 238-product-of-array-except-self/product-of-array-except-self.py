@@ -12,10 +12,7 @@ class Solution:
             res[i] = suffix * res[i]
         return res 
             
-        
-                
-
-# time complexity is O(n) and SC: O(n)
+# time complexity is O(n) and SC: O(1)
 
 
 
